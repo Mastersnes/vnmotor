@@ -1,0 +1,85 @@
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+ul {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	display: inline-block;
+}
+ul li {
+	display: inline-block;
+}
+.page {
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+}
+.footer {
+	position: absolute;
+	width: 100vw;
+	bottom: 0;
+}
+.h-center {
+	position: absolute;
+	margin-left: auto;
+	margin-right: auto;
+	left: 0;
+	right: 0;
+}
+.v-center {
+	margin-top: 50vh;
+    transform: translateY(-50%);
+}
+.clickable {
+	cursor: pointer;
+}
+button:focus {outline:0;}
+
+.text {
+    font-family: serif;
+    font-size : 4vh;
+    max-width: 100%;
+    word-wrap: break-word;
+}
+.underline {
+	text-decoration: underline;
+}
+.stroke {
+	text-decoration: line-through;
+}
+.app-container {
+    position: absolute !important;
+    left: 0px !important; top : 0px !important;
+    width: 100% !important; height: 100% !important;
+    
+    background-color : white;
+    background-image: url("../img/menu/bebel.png");
+    background-repeat: no-repeat;
+    background-size: 50% 50%;
+    background-position: 50% 50%;
+}
+.preload {
+	z-index: -5;
+	position: absolute !important;
+	left: 0px !important; top : 0px !important;
+	width: 100% !important; height: 100% !important;
+}
+.d-block {
+	display: block !important;
+}
+.flipH {
+	-moz-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -ms-filter: "FlipH";
+}
+.innactive {
+	pointer-events: none;
+}
