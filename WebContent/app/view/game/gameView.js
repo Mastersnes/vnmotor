@@ -5,10 +5,12 @@ define(["jquery",
         "app/utils/popupUtils",
         "text!app/template/game/game.html",
         "app/manager/sceneManager",
-        "app/manager/textManager"
+        "app/manager/textManager",
+        "app/view/game/tableauxView"
         ],
 function($, _, Utils, PopupUtils, page, 
-		SceneManager, TextManager) {
+		SceneManager, TextManager,
+		TableauxView) {
 	'use strict';
 
 	return function(parent) {
@@ -21,14 +23,16 @@ function($, _, Utils, PopupUtils, page,
 			this.pause = false;
 			this.endGame = false;
 			
-			this.render();
-			
 			// Manager
 			this.saveManager = parent.saveManager;
 			
             this.scene = new SceneManager(this);
             this.textManager = new TextManager(this);
+            
+            this.tableauxView = new TableauxView(this);
 
+            this.render();
+            
             if (!this.alreadyLoop) {
 			    this.alreadyLoop = true;
                 this.makeEvents();
@@ -43,12 +47,15 @@ function($, _, Utils, PopupUtils, page,
 					text : this.Textes
 			};
 			this.el.html(template(templateData));
+			
+			this.tableauxView.render();
 		};
 		
 		this.loop = function() {
 		    if (!this.endGame) {
     		    if (!this.pause) {
                     this.saveManager.saveInSession();
+                    this.tableauxView.loop();
                 }
                 var that = this;
                 setTimeout(function() {
