@@ -1,7 +1,7 @@
 'use strict';
 define(["jquery", "sha"], function($, sha){
 	return {
-		name : "bebelYuleGodBirth",
+		name : "vnMotor",
 		
 		/**
 		* Permet d'appeler un WS
@@ -38,7 +38,7 @@ define(["jquery", "sha"], function($, sha){
 		},
 		
 		hash : function(str) {
-			str = "JHGKJHGjhkgkhjgxcvkjgKHJGJH4455456s4dfsdfkhgHJKGJHGdckldsjvkljklLHKH54654" + str + "sdfqsHJGKJGHG5465564HJGHJFJHGJHG23465dfgdfg34654GHFHGF";
+			str = "fsldkhgsdfknvLJBLJBKNMD54456sdcLksndjlkvjbJBLJBBJKXBK" + str + "LKHFJBLJBLJKD5465451njknKLNLKNbNJHBJB844njbnjlb";
 			return sha.sha256(str);
 		},
 		percent : function(value, percentage, base) {

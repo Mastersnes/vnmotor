@@ -1,0 +1,13 @@
+
+/**
+* Game
+**/
+.game {
+	background-color: black;
+}
+.scene {
+	position: relative;
+	margin-left: auto;
+	margin-right: auto;
+	overflow: hidden;
+}
