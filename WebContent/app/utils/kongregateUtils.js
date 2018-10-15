@@ -1,5 +1,5 @@
 'use strict';
-define(["jquery", "app/utils/utils", "app/data/kongregateStats", "kongregate"], function($, Utils, Stats){
+define(["jquery", "app/utils/utils", "kongregate"], function($, Utils){
 	return function(Textes){
 		this.init = function(Textes) {
 			this.Textes = Textes;
@@ -35,23 +35,6 @@ define(["jquery", "app/utils/utils", "app/data/kongregateStats", "kongregate"], 
 			if (!this.isLoad) return;
 			
 			this.kongregate.stats.submit(key, value);
-		};
-		
-		this.getScore = function(key) {
-			var that = this;
-			var statId = Stats.get(key);
-			if (!(this.isLoad && this.username && statId)) return null;
-			
-			Utils.load("https://api.kongregate.com/api/high_scores/lifetime/"+statId+".json", null, function(data) {
-				if (!data) return null;
-				for (var index in data.lifetime_scores) {
-					var scoreData = data.lifetime_scores[index];
-					if (scoreData.username == that.username) {
-						return scoreData.score;
-					}
-				}
-				return null;
-			});
 		};
 		
 		this.login = function() {
