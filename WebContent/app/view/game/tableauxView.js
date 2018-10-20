@@ -32,7 +32,7 @@ function($, _, Tableaux, page) {
 			if (currentTableau) {
 				this.el.find(".fond").css("background-image", "url("+currentTableau.image+")");
 				this.el.find(".text").attr("position", currentTableau.texte.position);
-				this.el.find(".text").html(currentTableau.texte.texte);
+				this.el.find(".text span").html(currentTableau.texte.texte);
 			}
 		};
 		

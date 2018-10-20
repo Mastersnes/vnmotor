@@ -12,7 +12,9 @@ define(["jquery",
             	that.resize();
   			});
             
-            this.resize();
+            $(document).ready(function() {
+            	that.resize();
+            });
         };
         
         /**
@@ -22,8 +24,8 @@ define(["jquery",
             var w = $("body").width();
             var h = $("body").height();
             var rapport = {
-                    w : 1024 / 768,
-                    h : 768 / 1024
+                    w : 1280 / 1024,
+                    h : 1024 / 1280
             };
             
             if (w >= h) {
