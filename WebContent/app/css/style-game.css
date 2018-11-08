@@ -33,6 +33,7 @@
     display: inline-block;
     position: absolute;
 	width: 100%; height: auto;
+	min-height: 10%;
 	text-align: left;
     padding: 1% 5% 1% 5%;
     font-size: 3.5vh;

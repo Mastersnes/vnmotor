@@ -24,8 +24,8 @@ define(["jquery",
             var w = $("body").width();
             var h = $("body").height();
             var rapport = {
-                    w : 1280 / 1024,
-                    h : 1024 / 1280
+                    w : 1280 / 720,
+                    h : 720 / 1280
             };
             
             if (w >= h) {

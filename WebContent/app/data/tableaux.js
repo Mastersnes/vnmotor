@@ -3,12 +3,15 @@ define(["jquery", "app/data/tableau"], function($, Scene){
     var data = [];
 
     addScene("app/img/game/tableaux/1.png")
-        .addNewText("Test1", "bas").addLine()
-        .addText("Test2");
+        .addNewText("Scene1 Text1", "bas").addLine()
+        .addText("Scene1 Text2");
+    
     addScene("app/img/game/tableaux/2.png")
-        .addNewText("Test2", "haut");
+        .addNewText("Scene2 Text1", "haut");
+    
     addScene("app/img/game/tableaux/3.png")
-        .addNewText("Test3", "bas");
+        .addNewText("Scene3 Text1", "bas").addLine()
+        .addText("Scene3 Text2");
 
 
     function addScene(image) {
@@ -19,8 +22,7 @@ define(["jquery", "app/data/tableau"], function($, Scene){
 
     return {
         get : function(key) {
-            if (data[key]) return $.extend(true, {}, data[key]);
-            else return null;
+            return data[key];
         },
         list : function() {
             return data;

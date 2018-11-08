@@ -33,7 +33,7 @@ function($, _, Tableaux, page) {
 			if (this.currentScene) {
 				this.el.find(".fond").css("background-image", "url("+this.currentScene.image+")");
 
-				var currentText = this.currentScene.currentText();
+				var currentText = this.currentScene.getCurrentText();
 				if (currentText) {
                     this.el.find(".text").attr("position", currentText.position);
                     this.el.find(".text span").html(currentText.texte);
@@ -46,7 +46,8 @@ function($, _, Tableaux, page) {
 		this.makeEvents = function() {
 			var that = this;
 			this.el.click(function() {
-                that.currentScene.next();
+				if (!that.currentScene) return;
+				that.currentScene.next();
 				if (that.currentScene.finish())
 					that.current++;
 				that.refresh();

@@ -20,26 +20,30 @@ define([],
             };
 
             this.addText = function(text) {
-                var lastText = this.blocs[this.blocs.length-1];
-                lastText.textes.push(text);
+                var lastBloc = this.blocs[this.blocs.length-1];
+                lastBloc.textes.push(text);
                 return this;
             };
 
             this.addLine = function() {
-                this.addText("<br/>");
+            	var lastBloc = this.blocs[this.blocs.length-1];
+                lastBloc.textes[lastBloc.textes.length-1] += "<br/>";
                 return this;
             };
 
-            this.currentText = function() {
-                if (this.finish()) return null;
+            this.getCurrentText = function() {
+            	if (this.finish()) return null;
                 var bloc = this.blocs[this.currentBloc];
                 if (bloc) {
-                    var texte = bloc.textes[this.currentText];
+                    var texte = "";
+                	for (var i=0; i<=this.currentText; i++) {
+                    	texte += bloc.textes[i];
+                    }
                     if (texte)
                         return {
                             position : bloc.position,
                             texte : texte
-                        }
+                        };
                 }
                 return null;
             };
@@ -59,6 +63,6 @@ define([],
                 }
             };
 
-            this.init(parent);
+            this.init(image);
         };
     });
