@@ -1,23 +1,20 @@
 'use strict';
-define(["jquery"], function($){
+define(["jquery", "app/data/tableau"], function($, Scene){
     var data = [];
 
-    addScene("Test1", "bas", "app/img/game/tableaux/1.png");
-    addScene("Test2", "haut", "app/img/game/tableaux/2.png");
-    addScene("Test3", "bas", "app/img/game/tableaux/3.png");
+    addScene("app/img/game/tableaux/1.png")
+        .addNewText("Test1", "bas").addLine()
+        .addText("Test2");
+    addScene("app/img/game/tableaux/2.png")
+        .addNewText("Test2", "haut");
+    addScene("app/img/game/tableaux/3.png")
+        .addNewText("Test3", "bas");
 
-    function addScene(texte, position, image) {
-        data.push({
-            texte : {
-                position : position,
-                texte : texte
-            },
-            image : image,
-            transitions : {
-                start : null,
-                end : null
-            }
-        });
+
+    function addScene(image) {
+        var scene = new Scene(image);
+        data.push(scene);
+        return scene;
     };
 
     return {

@@ -10,6 +10,7 @@ function($, _, Tableaux, page) {
 		this.init = function(parent) {
 			this.gameView = parent;
 			this.current = 0;
+			this.currentScene;
 		};
 		
 		this.render = function() {
@@ -28,18 +29,26 @@ function($, _, Tableaux, page) {
 		};
 		
 		this.refresh = function() {
-			var currentTableau = Tableaux.get(this.current);
-			if (currentTableau) {
-				this.el.find(".fond").css("background-image", "url("+currentTableau.image+")");
-				this.el.find(".text").attr("position", currentTableau.texte.position);
-				this.el.find(".text span").html(currentTableau.texte.texte);
+			this.currentScene = Tableaux.get(this.current);
+			if (this.currentScene) {
+				this.el.find(".fond").css("background-image", "url("+this.currentScene.image+")");
+
+				var currentText = this.currentScene.currentText();
+				if (currentText) {
+                    this.el.find(".text").attr("position", currentText.position);
+                    this.el.find(".text span").html(currentText.texte);
+                }else {
+                    this.el.find(".text").hide();
+				}
 			}
 		};
-		
+
 		this.makeEvents = function() {
 			var that = this;
 			this.el.click(function() {
-				that.current++;
+                that.currentScene.next();
+				if (that.currentScene.finish())
+					that.current++;
 				that.refresh();
 			});
 		};
