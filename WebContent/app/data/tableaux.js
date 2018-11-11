@@ -6,12 +6,18 @@ define(["jquery", "app/data/tableau"], function($, Scene){
         .addNewText("Scene1 Text1", "bas").addLine()
         .addText("Scene1 Text2");
     
-    addScene("app/img/game/tableaux/2.png")
-        .addNewText("Scene2 Text1", "haut");
+    addScene("app/img/game/tableaux/2.png");
     
     addScene("app/img/game/tableaux/3.png")
-        .addNewText("Scene3 Text1", "bas").addLine()
-        .addText("Scene3 Text2");
+        .addNewText("Le lendemain", "center", "black").addLine()
+        .addText("Matin", "red").addLine()
+    	.addText("A 14h00...", "black");
+    
+    addScene("app/img/game/tableaux/2.png")
+    .addNewText("Scene4 Text1", "bas")
+    .addNewText("Scene4 Bloc2", "bas").addText(" Scene4 Bloc2 Text2")
+    .addNewText("Scene4 Bloc3", "bas").addLine()
+    .addText("Scene4 Bloc3 Text2");
 
 
     function addScene(image) {
