@@ -46,6 +46,9 @@
 			        <jsSourceIncludes>
 			            <jsSourceInclude>**/*.js</jsSourceInclude>
 			        </jsSourceIncludes>
+			    	<jsSourceExcludes>
+			    		<jsSourceExclude>**/tableaux.js</jsSourceExclude>
+			    	</jsSourceExcludes>
 			    </configuration>
 			</plugin>
 			
